@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Care Awaits | Disability Support in Brisbane</title>
+<meta name="description" content="Care Awaits provides disability support workers across Brisbane and surrounding areas. Here to support the life you choose.">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #532789;
+    --deep: #3a1c63;
+    --violet: #6a3fb0;
+    --soft: #b9a3e3;
+    --lilac: #d9c9f2;
+    --mist: #f1eafa;
+    --snow: #fbf9fe;
+    --white: #ffffff;
+    --ink: #2a2140;
+    --muted: #5e5575;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'Nunito Sans', 'Segoe UI', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); font-size: 1.0625rem; line-height: 1.65; color: var(--ink); background: var(--snow); }
+  a { color: var(--brand); }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--soft); outline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero with top bar */
+  .hero { background: linear-gradient(160deg, var(--brand) 0%, var(--deep) 100%); color: var(--white); position: relative; overflow: hidden; }
+  .swoosh { position: absolute; pointer-events: none; }
+  .swoosh.tl { top: -20px; left: -30px; width: min(520px, 60vw); }
+  .swoosh.br { bottom: -30px; right: -40px; width: min(560px, 65vw); }
+  .topbar .wrap { display: flex; align-items: center; justify-content: flex-end; gap: 16px; flex-wrap: wrap; padding-top: 22px; position: relative; z-index: 2; }
+  .topbar nav { display: flex; gap: 26px; flex-wrap: wrap; }
+  .topbar nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.98rem; opacity: 0.92; }
+  .topbar nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 88px; position: relative; z-index: 1; }
+  .hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.3rem, 5.4vw, 3.9rem); line-height: 1.08; letter-spacing: -0.01em; max-width: 14ch; }
+  .hero p { margin-top: 22px; max-width: 44ch; font-size: 1.18rem; color: var(--lilac); }
+  .hero-actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 14px 30px; border-radius: 999px; border: 2px solid var(--white); }
+  .btn-solid { background: var(--white); color: var(--brand); }
+  .btn-solid:hover { background: var(--mist); border-color: var(--mist); }
+  .btn-line { background: transparent; color: var(--white); }
+  .btn-line:hover { background: rgba(255,255,255,0.12); }
+  .hero-logo { width: 100%; max-width: 280px; height: auto; justify-self: center; display: block; }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  h2 { font-family: var(--serif); font-weight: 600; color: var(--deep); font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.15; margin-bottom: 20px; }
+
+  .about { position: relative; overflow: hidden; }
+  .about::before, .services::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='340' viewBox='0 0 520 340'%3E%3Cpath d='M-20 60 C 80 10, 180 110, 300 50 C 400 0, 470 40, 560 10' stroke='%23d9c9f2' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M-20 300 C 90 250, 170 330, 290 280 C 400 235, 470 290, 560 250' stroke='%23e3d6f6' stroke-width='2' fill='none' opacity='0.55'/%3E%3C/svg%3E");
+    background-repeat: repeat-y; background-size: 520px 340px; background-position: center top;
+  }
+  .about .wrap, .services .wrap { position: relative; z-index: 1; }
+  .about-grid { display: grid; grid-template-columns: 1fr 240px; gap: 56px; align-items: center; }
+  .about p { max-width: 58ch; }
+  .about p + p { margin-top: 16px; }
+  .about-art { width: 100%; max-width: 220px; height: auto; justify-self: center; display: block; }
+
+  .services { background: var(--white); position: relative; overflow: hidden; }
+  .services .intro { max-width: 58ch; color: var(--muted); margin-bottom: 36px; }
+  .service-list { list-style: none; border-top: 1px solid var(--lilac); }
+  .service-list li { display: grid; grid-template-columns: minmax(220px, 1fr) 2fr; gap: 12px 40px; padding: 26px 0; border-bottom: 1px solid var(--lilac); }
+  .service-list h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; color: var(--deep); line-height: 1.25; }
+  .service-list p { color: var(--muted); max-width: 60ch; }
+
+  .booking { background: var(--deep); color: var(--white); }
+  .booking h2 { color: var(--white); }
+  .booking p { max-width: 54ch; color: var(--lilac); }
+  .booking .btn { margin-top: 28px; }
+
+  .contact { background: var(--mist); }
+  .contact-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin-top: 12px; }
+  .contact-list dt { font-weight: 700; color: var(--deep); margin-bottom: 4px; }
+  .contact-list dd { color: var(--muted); }
+  .contact-list a { font-weight: 600; }
+
+  footer { background: var(--white); padding: 28px 0; color: var(--muted); font-size: 0.92rem; }
+
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; padding-top: 36px; padding-bottom: 64px; gap: 28px; }
+    .hero-logo { max-width: 220px; grid-row: 1; }
+    section { padding: 56px 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .about-art { max-width: 130px; justify-self: start; }
+    .service-list li { grid-template-columns: 1fr; gap: 6px; padding: 22px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <!-- Soft swooshes echoing the logo banner -->
+  <svg class="swoosh tl" viewBox="0 0 520 300" aria-hidden="true" fill="none">
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9c9f2" stop-opacity="0.75"/><stop offset="1" stop-color="#8a5fd0" stop-opacity="0.15"/></linearGradient></defs>
+    <path d="M0 0 H470 C 380 70, 300 170, 160 215 C 90 238, 30 238, 0 228 Z" fill="url(#g1)"/>
+    <path d="M0 232 C 40 246, 100 244, 170 220 C 310 172, 390 78, 480 0" stroke="#ffffff" stroke-opacity="0.55" stroke-width="1.5"/>
+  </svg>
+  <svg class="swoosh br" viewBox="0 0 560 300" aria-hidden="true" fill="none">
+    <defs><linearGradient id="g2" x1="1" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d9c9f2" stop-opacity="0.75"/><stop offset="1" stop-color="#8a5fd0" stop-opacity="0.15"/></linearGradient></defs>
+    <path d="M560 300 H0 C 120 280, 230 230, 330 150 C 400 94, 480 64, 560 60 Z" fill="url(#g2)"/>
+    <path d="M0 302 C 120 282, 232 232, 332 152 C 402 96, 482 66, 560 62" stroke="#ffffff" stroke-opacity="0.55" stroke-width="1.5"/>
+  </svg>
+
+  <div class="topbar">
+    <div class="wrap">
+      <nav aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#book">Book</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Here to support the life you choose.</h1>
+      <p>Care Awaits provides caring, reliable disability support workers across Brisbane and surrounding areas.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#book">Book a consultation</a>
+        <a class="btn btn-line" href="#services">See our services</a>
+      </div>
+    </div>
+    <img class="hero-logo" src="logo-white.png" alt="Care Awaits logo, with white angel wings either side of the name" width="760" height="532">
+  </div>
+</header>
+
+<main>
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>About Care Awaits</h2>
+        <p>Care Awaits is a disability support provider based in Brisbane. We match each client with a support worker who suits their needs, routines and goals.</p>
+        <p>Our directors, Darcy and Trinity, started Care Awaits so that people can live life on their own terms, with care that is respectful, dependable and personal.</p>
+      </div>
+      <img class="about-art" src="heart-hand.png" alt="" width="288" height="720">
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>Our services</h2>
+      <p class="intro">Support is shaped around you. Tell us what matters, and we will build a plan with the right support worker.</p>
+      <ul class="service-list">
+        <li>
+          <h3>Disability support work</h3>
+          <p>Skilled support workers matched to your needs, preferences and goals, whether you need regular help or support for particular tasks.</p>
+        </li>
+        <li>
+          <h3>Personal care</h3>
+          <p>Respectful help with everyday personal care, delivered with privacy, dignity and your choices at the centre.</p>
+        </li>
+        <li>
+          <h3>In-home and daily living support</h3>
+          <p>Practical help around the home, from meals and household tasks to routines, so you can stay comfortable and independent.</p>
+        </li>
+        <li>
+          <h3>Community and social participation</h3>
+          <p>Support to get out and about, join activities, see friends and stay connected to your community.</p>
+        </li>
+        <li>
+          <h3>Transport and travel assistance</h3>
+          <p>Reliable support to get to appointments, work, activities and outings, with a support worker by your side.</p>
+        </li>
+        <li>
+          <h3>Skills development and capacity building</h3>
+          <p>Hands-on support to build confidence and independence, and to work towards the goals you set for yourself.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="booking" id="book">
+    <div class="wrap">
+      <h2>Book a consultation with the team</h2>
+      <p>Pick a time that suits you for a phone call or an in-person meeting. We will talk through what you need and how we can help.</p>
+      <!-- Replace the address below with your Google Calendar booking page link -->
+      <a class="btn btn-solid" href="REPLACE_WITH_GOOGLE_CALENDAR_LINK" target="_blank" rel="noopener">Choose a time</a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Contact us</h2>
+      <dl class="contact-list">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:Careawaits@gmail.com">Careawaits@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <dd><a href="tel:0494901695">0494 901 695</a></dd>
+        </div>
+        <div>
+          <dt>Where we work</dt>
+          <dd>Brisbane and surrounding areas</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Care Awaits Pty Ltd. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
